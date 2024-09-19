@@ -1,0 +1,31 @@
+/* ************************* 
+BUTTONS 
+************************* */
+
+button {
+	background-color: $accentuationColor;
+	text-align: center;
+	display: block;
+	padding: 1rem 2rem;
+	margin: 2rem auto;
+	border: 1px solid $accentuationColor;
+	border-radius: 0.3em;
+
+	a,
+	span {
+		color: $secondaryColor;
+		text-decoration: none;
+	}
+
+	&:hover,
+	&:focus {
+		background-color: $secondaryColor;
+
+		a,
+		span {
+			text-decoration: none;
+			color: $accentuationColor;
+		}
+	}
+
+}

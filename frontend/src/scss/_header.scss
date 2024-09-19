@@ -1,0 +1,130 @@
+/* ************************* 
+HEADER
+************************* */
+
+header {
+    background-color: $primaryColor;
+    color: $secondaryColor;
+    font-size: 1.6rem;
+    text-align: center;
+
+    .container {
+        padding: 3rem 0rem;
+
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            position: relative;
+
+            #main-navigation {
+                display: flex;
+                align-items: center;
+                justify-content: flex-end; // Ajuste pour la bonne position de l'icône
+                #menu-icon {
+                    cursor: pointer;
+                    display: flex;
+                    flex-direction: column;
+                    gap: 4px;
+                    margin-left: 1rem;
+                    padding: 1rem;
+
+                    span {
+                        width: 30px;
+                        height: 2px;
+                        background-color: $secondaryColor;
+                        display: block;
+                        text-decoration: none; 
+                        //transition: background-color 0.5s ease;
+                    }
+
+                    &:hover,
+                    &:focus {
+                        background-color: $secondaryColor;
+
+                        span {
+                            background-color: $primaryColor;
+                        }
+                    }
+                }
+
+                ul {
+                    display: none;
+                    flex-direction: column;
+                    align-items: center;
+                    position: absolute;
+                    top: 100%;
+                    right: 0;
+                    background-color: rgba($primaryColor, 0.75);
+                    width: 100%;
+                    z-index: 999;
+
+                    &.open {
+                        display: flex; // Affiche le menu lorsqu'il est ouvert
+                    }
+
+                    li {
+                        display: block;
+                        width: 100%;
+
+                        a {
+                            text-decoration: none;
+                        }
+
+                        span {
+                            display: flex;
+                            justify-content: center;
+                            text-align: center;
+                            color: $secondaryColor;
+                            padding: 1rem;
+                            width: 100%;
+                            text-decoration: none;
+                        }
+
+                        &:hover,
+                        &:focus {
+                            background-color: $secondaryColor;
+                            text-decoration: none;
+
+                            span {
+                                color: $primaryColor;
+                            }
+                        }
+                    }
+                }
+            }
+
+            #logo {
+                position: absolute;
+                left: 50%;
+                transform: translateX(-50%);
+
+                img {
+                    width: 50%;
+                }
+            }
+
+            #navigation-icon {
+                ul {
+                    display: flex;
+                    margin-right: 1rem;
+
+                    li {
+                        a {
+                            padding: 1rem;
+                            color: $secondaryColor;
+                            &:hover {
+                                color: $primaryColor;
+                                background-color: $secondaryColor;
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
+
+/* ********** RESPONSIVE ********** */
+
+@media (min-width: 768px) {}

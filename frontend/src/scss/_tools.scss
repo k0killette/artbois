@@ -1,0 +1,39 @@
+/* *****************************************************************
+TOOLS
+***************************************************************** */
+* {
+	box-sizing: border-box; 
+	/* On spécifie que la largeur (width) de chaque boîte comprend le padding et la bordure (par défaut, c'est seulement la largeur du contenu) */
+}
+
+html {
+	font-size: 62.5%; 
+	/* 1rem = 10px (la formule est 10/16*100) la taille par défaut étant 16px */
+}
+
+body {
+	margin: 0;
+	padding: 0;
+}
+
+/* Le container permet de limiter la largeur d'un contenu */
+.container {
+	max-width: 1400px; /* On donne une largeur au container */
+	margin: 0 auto; /* On centre son contenu */
+}
+
+/* Contenu principal */
+main {
+	//padding: 2rem 1rem;
+}
+
+/* Les images */ 
+img {
+	max-width: 100%;
+	height: auto;
+}
+
+/* marge entre les sections */
+section + section {
+	margin-top: 2em;
+}

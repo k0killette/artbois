@@ -1,0 +1,33 @@
+/* ************************* 
+HOME PAGE
+************************* */
+#introduction {
+	background: url(../assets/img/artbois_copeaux-bois.jpg) left center;
+	background-size: cover;
+	padding: 8rem 0;
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+
+	#intro-title {
+		background-color: rgba($secondaryColor, 0.75);
+		color: $primaryColor;
+		padding: .5rem 3rem;
+
+		p {
+			text-align: center;
+			font-style: italic;
+			font-size: 2rem;
+		}
+	}
+}
+
+section {
+	display: flex;
+	flex-direction: column;
+
+	article {
+		padding: 1rem 2rem;
+	}
+}

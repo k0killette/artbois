@@ -1,0 +1,48 @@
+body {
+	font-family: "Luciole-Regular", sans-serif;
+	font-size: 1.6rem; /* On remet la taille du texte par défaut pour le body à 16px en utilisant les rem comme unité */
+	line-height: 1.5;
+	color: $textColor;
+	background-color: $secondaryColor;
+}
+
+h1,
+h2, 
+h3,
+header {
+	font-family: "Montserrat-SemiBold", sans-serif;
+	color: $primaryColor;
+	text-align: center;
+}
+
+h1 {
+	font-size: 3.2rem;
+}
+
+h2 {
+	font-size: 2.6rem;
+}
+
+h3 {
+	font-size: 2rem;
+}
+
+p {
+	text-align: justify;
+}
+
+ul {
+	list-style: none;
+	padding-left: 0;
+}
+
+/* Liens */
+a {
+	text-decoration: none;
+	color: $accentuationColor;
+}
+
+/* Ajout d'un élément de décoration au survol */
+a:hover {
+	text-decoration: underline;
+}

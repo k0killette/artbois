@@ -1,0 +1,39 @@
+/* ************************* 
+ABOUT PAGE
+************************* */
+
+.about video {
+	display: block;
+	width: 90%;
+	margin: 5rem auto;
+}
+
+.gallery {
+	background-color: $secondaryColor;
+	padding: 2rem 1rem;
+	
+	figure {
+		margin:1rem;
+	    
+	    figcaption {
+	        text-align: center;
+	        font-size: 1.5rem;
+        }
+    }
+}
+
+@media screen and (min-width:780px) {
+    .gallery {	
+		display: flex;
+		justify-content: space-between;
+		flex-wrap: wrap;
+	}
+	
+	.gallery figure {
+		width: calc(50% - 2rem);
+	}
+	
+	video {
+		width: 75%;
+	}
+}
