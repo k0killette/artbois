@@ -1,7 +1,7 @@
 # Bienvenue
 
 Bienvenue sur "Art&Bois : le site de référence sur l'ébénisterie d'art". Art&Bois est à la fois le site vitrine d'un atelier d'ébénisterie d'art et un site de vente en ligne. 
-<img src="/public/images/readme/home.png" alt="bannière de l'application web">
+<img src="./public/images/readme/home.png" alt="bannière de l'application web">
 
 Ce fichier est consacré à la partie **backend** du projet.
 
