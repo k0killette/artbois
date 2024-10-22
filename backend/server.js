@@ -54,7 +54,7 @@ mysql.createConnection({
 }).catch(err => console.log(err)) // Gestion des erreurs de connexion à la base de données
 
 // Configuration du port d'écoute
-const PORT = process.env.PORT || 9000 // Utilise le port défini dans les variables d'environnement, sinon le port 9100 par défaut
+const PORT = process.env.PORT || 9000 // Utilise le port défini dans les variables d'environnement, sinon le port 9000 par défaut
 app.listen(PORT, () => {
     console.log(`Serveur à l'écoute sur le port ${PORT}`) // Confirme que le serveur est actif et à l'écoute
 })
