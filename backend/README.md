@@ -27,16 +27,19 @@ Voici la liste des packages utilisés dans ce projet et à installer pour le fai
 "dependencies": {
     "@hapi/address": "^5.1.1",
     "@hapi/tlds": "^1.0.6",
+    "axios": "^1.7.7",
     "bcrypt": "^5.1.1",
     "bcryptjs": "^2.4.3",
     "cors": "^2.8.5",
     "dotenv": "^16.4.5",
     "express": "^4.19.2",
     "express-fileupload": "^1.5.1",
+    "file-type": "^16.5.4",
     "joi": "^17.13.3",
     "jsonwebtoken": "^9.0.2",
     "promise-mysql": "^5.2.0",
-    "stripe": "^16.7.0"
+    "stripe": "^16.7.0",
+    "uuid": "^10.0.0"
   },
   "devDependencies": {
     "nodemon": "^3.1.4"
