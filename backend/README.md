@@ -10,7 +10,7 @@ Ce fichier est consacré à la partie **backend** du projet.
 ## Contexte 
 
 Ce projet est réalisé dans le cadre de la Formation Intensive "Développeur Web Full-Stack - Javascript" de la 3W Academy.
-Il s'agit néanmoins d'un projet réel, le client existe et le site sera mis en ligne. Cependant, le client étant actuellement en formation pour devenir ébéniste, la partie boutique du projet ne sera pas mise en ligne immédiatement.
+Il s'agit néanmoins d'un projet réel : le client existe et le site sera mis en ligne. Cependant, le client étant actuellement en formation pour devenir ébéniste, la partie boutique du projet ne sera pas mise en ligne immédiatement.
 
 <br/>
 
