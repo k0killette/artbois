@@ -36,12 +36,12 @@ mysql.createConnection({
     console.log("Connexion à la BDD Art et Bois OK") // Confirme la connexion à la BDD
 
     // Vérification de la connexion à la BDD toutes les 10 secondes pour s'assurer que la connexion est maintenue
-    setInterval(async() => {
+    setInterval(async () => {
         const res = await db.query('SELECT 1') // Envoie une requête basique pour maintenir la connexion
     }, 10000)
 
     // Définition de la route principale
-    app.get('/', async(req, res, next) => {
+    app.get('/', async (req, res, next) => {
         res.json({ status: 200, msg: "Bienvenue sur votre API Art et Bois" }) // Message de bienvenue à la racine
     })
 
@@ -54,7 +54,7 @@ mysql.createConnection({
 }).catch(err => console.log(err)) // Gestion des erreurs de connexion à la base de données
 
 // Configuration du port d'écoute
-const PORT = process.env.PORT || 9100 // Utilise le port défini dans les variables d'environnement, sinon le port 9100 par défaut
+const PORT = process.env.PORT || 9000 // Utilise le port défini dans les variables d'environnement, sinon le port 9100 par défaut
 app.listen(PORT, () => {
     console.log(`Serveur à l'écoute sur le port ${PORT}`) // Confirme que le serveur est actif et à l'écoute
 })
