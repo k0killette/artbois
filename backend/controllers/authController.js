@@ -1,20 +1,26 @@
+/*
+authController.js : ce contrôleur gère l'authentification et la vérification des tokens JWT pour les utilisateurs.
+*/
+
 module.exports = (UserModel) => {
+    
+    // Vérifie le token JWT et renvoie les informations utilisateur si le token est valide
     const checkToken = async(req, res) => {
         try {
-            // On récupère les informations de l'utilisateur à partir de son id
+            // Récupère les informations de l'utilisateur à partir de son id
             const user = await UserModel.getOneUser(req.id)
             
-            // On vérifie s'il y a un code d'erreur dans l'objet user
+            // Vérifie s'il y a un code d'erreur dans l'objet user
             if (user.code) {
                 return res.json({ status: 500, msg: "Erreur lors de la récupération des informations utilisateur" })
             }
             
-            // On vérifie si user est null ou undefined ou si la réponse est vide
+            // Vérifie si user est null ou undefined ou si la réponse est vide (l'utilisateur n'a pas été trouvé)
             else if (!user || user.length === 0) {
                 return res.json({ status: 404, msg: "Utilisateur introuvable"})
             }
             
-            // S'il n'y a aucune erreur on récupère les données de l'utilisateur
+            // Si l'utilisateur est trouvé, récupère dans un objet les données de l'utilisateur
             else {
                 const myUser = {
                     id: user[0].id,
@@ -28,16 +34,17 @@ module.exports = (UserModel) => {
                     phone: user[0].phone,
                     role: user[0].role
                 }
+                // Renvoie la réponse avec les données récupérées
                 return res.json({ status: 200, user: myUser })
             }
         }
+        // Gestion des erreurs lors de la vérification du token
         catch (err) {
-            // Si erreur 
             return res.json({ status: 500, msg: "Problème de token lors de l'authentification" })
         }
     }
     
-    // On retourne l'objet avec la méthode checkToken
+    // Retourne les méthodes du contrôleur pour les utiliser dans les routes
     return {
         checkToken
     }
