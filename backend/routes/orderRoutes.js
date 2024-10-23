@@ -82,4 +82,10 @@ module.exports = (app, db) => {
     // (vérifiée)
     // Route de récupération des détails d'une commande avec accès limité aux utilisateurs authentifiés
     app.get('/api/artbois/order-details/:orderId', withAuth, orderDetailController.getOrderDetails)
+    
+    { /* SHIPPING COST ROUTE */ }
+    
+    // (vérifiée)
+    // Route de calcul des frais d'expédition
+    app.post('/api/artbois/shipping/calculate', orderController.calculateShipping)
 }
