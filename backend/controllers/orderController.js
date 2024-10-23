@@ -11,6 +11,30 @@ const stripe = require('stripe')(sk_test)
 
 module.exports = (ProductModel, OrderModel, OrderDetailModel) => {
 
+    // Calcule les frais d'expédition avant la validation de la commande
+    const calculateShipping = (req, res) => {
+        try {
+            // Récupère le panier envoyé dans le corps de la requête
+            const { basket } = req.body
+            // Initialise le poids total de la commande à 0
+            let totalWeight = 0 
+            
+            // Boucle sur chaque produit dans le panier pour calculer le poids total
+            basket.forEach(item => {
+                totalWeight += shippingCalculator.calculateTotalWeight(item.quantityInCart, item.weight)
+            })
+            
+            // Calcule les frais d'expédition en fonction du poids total de la commande
+            const shippingCost = shippingCalculator.calculateShippingCost(totalWeight)
+            // Renvoie les frais d'expédition au client avec un statut 200 (OK)
+            res.json({ status: 200, shippingCost })
+        } 
+        // Gère les erreurs et renvoie un message d'erreur avec un statut 500 (Internal Server Error)
+        catch (error) {
+            res.json({ status: 500, msg: "Erreur lors du calcul des frais d'expédition", error })
+        }
+    }
+    
     // Enregistre une commande dans la base de données après le paiement sur Stripe
     const saveOrder = async(req, res) => {
         try {
@@ -18,11 +42,11 @@ module.exports = (ProductModel, OrderModel, OrderDetailModel) => {
             const userId = req.body.user_id
 
             // Initialise les variables pour stocker les différents totaux
-            let totalProducts = 0
-            let totalAmountProducts = 0
-            let totalWeight = 0
-            let shippingCost = 0
-            let totalAmount = 0
+            let totalProducts = 0 // Nombre total de produits dans la commande
+            let totalAmountProducts = 0 // Montant total des produits
+            let totalWeight = 0 // Poids total de la commande
+            let shippingCost = 0 // Frais d'expédition calculés selon le poids total de la commande
+            let totalAmount = 0 // Montant total de la commande
 
             // Boucle sur le panier pour calculer le nombre total de produits, le montant total et le poids total
             for (const item of req.body.basket) {
@@ -236,6 +260,7 @@ module.exports = (ProductModel, OrderModel, OrderDetailModel) => {
     
     // Retourne les méthodes du contrôleur pour les utiliser dans les routes
     return {
+        calculateShipping,
         saveOrder,
         executePayment,
         updateOrderStatus,
